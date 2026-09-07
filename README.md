@@ -1,15 +1,16 @@
 # homebrew-ainkrad
 
-The Homebrew tap for [Ainkrad](https://github.com/AhmedMElhalaby/Ainkrad) — the desktop
+The Homebrew tap for [Ainkrad](https://github.com/AinkradHQ/Ainkrad) — the desktop
 app and the `ainkrad` CLI.
 
 ```
-brew tap AhmedMElhalaby/ainkrad
+brew tap AinkradHQ/ainkrad
 ```
 
-> Renamed from `homebrew-tap` on 2026-08-02. GitHub redirects the old path, so an existing
-> `AhmedMElhalaby/tap` keeps working — it will just still be *called* `tap` locally. To move
-> to the new name: `brew untap AhmedMElhalaby/tap && brew tap AhmedMElhalaby/ainkrad`.
+> Moved to the `AinkradHQ` org on 2026-09-07 (previously `AhmedMElhalaby/ainkrad`, and
+> `homebrew-tap` before 2026-08-02). GitHub redirects the old paths, so an existing tap keeps
+> working — it will just still be *called* by its old name locally. To move to the new name:
+> `brew untap AhmedMElhalaby/ainkrad && brew tap AinkradHQ/ainkrad`.
 > Nothing already installed is removed by that.
 
 ## The desktop app
@@ -22,7 +23,7 @@ brew upgrade --cask ainkrad
 ## The CLI
 
 ```
-brew install AhmedMElhalaby/ainkrad/ainkrad
+brew install AinkradHQ/ainkrad/ainkrad
 ```
 
 ## Unsigned builds
@@ -46,7 +47,7 @@ Releases are currently **unsigned and un-notarized** — Developer-ID enrollment
   Or take the release asset directly:
 
   ```
-  curl -LO https://github.com/AhmedMElhalaby/AinkradKit/releases/download/<version>/ainkrad-<version>-macos.zip
+  curl -LO https://github.com/AinkradHQ/AinkradKit/releases/download/<version>/ainkrad-<version>-macos.zip
   unzip ainkrad-<version>-macos.zip
   xattr -d com.apple.quarantine ainkrad
   ./ainkrad --help

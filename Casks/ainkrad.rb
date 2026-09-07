@@ -2,10 +2,10 @@ cask "ainkrad" do
   version "0.16.2"
   sha256 "8224abf82bfbaeb3b9d7b1af2246926b0e9f7561a0c642f5f0f57d9b0b5021bb"
 
-  url "https://github.com/AhmedMElhalaby/Ainkrad/releases/download/v#{version}/Ainkrad-#{version}.dmg"
+  url "https://github.com/AinkradHQ/Ainkrad/releases/download/v#{version}/Ainkrad-#{version}.dmg"
   name "Ainkrad"
   desc "Agentic OS workspace for software engineers"
-  homepage "https://github.com/AhmedMElhalaby/Ainkrad"
+  homepage "https://github.com/AinkradHQ/Ainkrad"
 
   depends_on macos: :sonoma
   depends_on arch: :arm64
