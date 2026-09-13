@@ -23,10 +23,14 @@ cask "ainkrad" do
   # instead of three. It is stated plainly in the caveats below rather than
   # done quietly — stripping Gatekeeper's mark is a real security decision, and
   # anyone installing this should know they are making it.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Ainkrad.app"],
-                   sudo: false
+  #
+  # Structured `postflight_steps`, not a Ruby `postflight` block: Homebrew
+  # deprecated the block form, and warned about it on every `brew` run. Steps
+  # are stored as data, so the path uses the install-time `{{appdir}}` token
+  # rather than Ruby interpolation.
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args: ["-dr", "com.apple.quarantine", "{{appdir}}/Ainkrad.app"]
   end
 
   caveats <<~CAVEATS
