@@ -1,6 +1,6 @@
 cask "ainkrad" do
-  version "0.16.2"
-  sha256 "8224abf82bfbaeb3b9d7b1af2246926b0e9f7561a0c642f5f0f57d9b0b5021bb"
+  version "0.20.0"
+  sha256 "bd96b1708974bc5c3a030418660f80c7ccaf765468b47d7bf1e6ec3834cf4171"
 
   url "https://github.com/AinkradHQ/Ainkrad/releases/download/v#{version}/Ainkrad-#{version}.dmg"
   name "Ainkrad"
@@ -11,44 +11,6 @@ cask "ainkrad" do
   depends_on arch: :arm64
 
   app "Ainkrad.app"
-
-  # Ainkrad is not notarized — notarization requires a paid Apple Developer
-  # Program membership. Without this, macOS quarantines the download and
-  # refuses to launch it until the user allows it by hand in System Settings >
-  # Privacy & Security.
-  #
-  # Homebrew 6 removed the `--no-quarantine` flag, so a cask for an unsigned
-  # app has to clear the attribute itself. This is exactly the command the user
-  # would otherwise run by hand; doing it here makes the install one step
-  # instead of three. It is stated plainly in the caveats below rather than
-  # done quietly — stripping Gatekeeper's mark is a real security decision, and
-  # anyone installing this should know they are making it.
-  #
-  # Structured `postflight_steps`, not a Ruby `postflight` block: Homebrew
-  # deprecated the block form, and warned about it on every `brew` run. Steps
-  # are stored as data, so the path uses the install-time `{{appdir}}` token
-  # rather than Ruby interpolation.
-  postflight_steps do
-    run "/usr/bin/xattr",
-        args: ["-dr", "com.apple.quarantine", "{{appdir}}/Ainkrad.app"]
-  end
-
-  caveats <<~CAVEATS
-    Ainkrad is NOT notarized by Apple — that requires a paid Apple Developer
-    Program membership.
-
-    This cask removed the macOS quarantine flag from Ainkrad.app so it will
-    launch. That is the same thing you would do by hand:
-
-      xattr -dr com.apple.quarantine "/Applications/Ainkrad.app"
-
-    What you are trusting: this tap and the GitHub release it points at,
-    verified by SHA-256 — not Apple's notarization service.
-
-    Plugin code signatures are also not verified in an unsigned build. The app
-    says so in its App Store surface. Plugin downloads are still checked
-    against the catalog's SHA-256, so the bytes match what was published.
-  CAVEATS
 
   zap trash: [
     "~/Library/Application Support/com.ainkrad.app",
