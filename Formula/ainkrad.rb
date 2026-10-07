@@ -1,9 +1,9 @@
 class Ainkrad < Formula
   desc "Ainkrad agentic OS CLI"
   homepage "https://github.com/AinkradHQ/AinkradKit"
-  version "0.3.0"
-  url "https://github.com/AinkradHQ/AinkradKit/releases/download/v#{version}/ainkrad-v#{version}-macos.zip"
-  sha256 "cf8cb24d7201c36cef802855d8f99fa51291c8acdad2cc1ea67b79dc617b8ced"
+  version "0.4.0"
+  url "https://github.com/AinkradHQ/AinkradKit/releases/download/v0.4.0/ainkrad-v0.4.0-macos.zip"
+  sha256 "0122e89bc95e6f7f7071d647acf4cd40df691883f8fd6bc8fb3676034ea13284"
   license "UNLICENSED"
 
   def install
